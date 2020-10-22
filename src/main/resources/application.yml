@@ -1,0 +1,55 @@
+spring :
+#database datasource 설정
+  datasource:
+    dev:
+      driver-class-name: org.mariadb.jdbc.Driver
+      jdbc-url: jdbc:mariadb://localhost:3306/localdemo
+      username: localdemo
+      password: localdemo
+      maximum-pool-size: 10
+  mvc:    view:      prefix: /WEB-INF/views/
+      suffix: .jsp
+      
+#AUTO-RELOADING(spring devtools)
+#server.jsp-servlet.init-parameters.development=true # spring 1.x below
+  devtools:
+    livereload:
+      enabled: true #spring 2.x above
+
+#Embedded Tomcat setting
+server:
+  port: 8081
+  tomcat:
+    uri-encoding: UTF-8
+  servlet:    context-path: /
+  error:
+    path: /error    whitelabel:      enabled: false
+      
+#log level setting(log4j)
+logging.level.com: DEBUG
+#logging.level.jdbc.audit: INFO
+#logging.level.jdbc.sqlonly: INFO
+#logging.level.jdbc.resultsettable: INFO
+#logging.level.org: TRACE
+
+#====================================================================
+#=====================custom attributes==============================
+#====================================================================
+#file storage path
+#업로드 된 파일 저장
+file.storage-path.inbound: D:\file\storage
+#다운로드 된 파일 저장
+file.storage-path.outbound: D:\file\download
+
+#spring security 로그인 id, pw swap
+account.login.identifier: identifier
+account.login.validator: accessor
+#spring security token
+account.token.param: rememberUser
+account.token.key: encrypt_this_key_by_encryptor
+account.token.cookieName: legacyToken
+account.token.cookieExpireTime: 1209600 #60*60*24*14(sec*min*hr*day)
+
+#계정 정책
+account.password-expired-days: 90
+account.password-lock-limit: 5
