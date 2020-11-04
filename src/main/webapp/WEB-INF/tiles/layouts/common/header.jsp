@@ -134,6 +134,9 @@
                         <li>
                             <a href="/examples/formStuff/formWizard" title="">Form Wizard</a>
                         </li>
+                        <li>
+                            <a href="/examples/multipart/multipartFilePage" title="">File Upload</a>
+                        </li>
                     </ul>
                 </li>
                 <li>

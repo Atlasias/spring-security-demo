@@ -43,7 +43,9 @@ public abstract class Domain {
 			} 
 		} catch (IllegalStateException e) { 
 			inptUserId = "SYSTEM"; 
-			modUserId = "SYSTEM"; inptIp = "SYSTEM"; modIp = "127.0.0.1"; 
+			inptIp = "SYSTEM"; 
+			modUserId = "SYSTEM"; 
+			modIp = "127.0.0.1"; 
 		}
 
 //		inptUserId = "SYSTEM";

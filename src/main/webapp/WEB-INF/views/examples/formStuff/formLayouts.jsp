@@ -150,7 +150,7 @@
                 <label class="fileContainer">
                   <span class="blue-bg brd-rd5">Browse</span>
                   No File Selected.
-                  <input type="file" />
+                  <input type="file"/>
                 </label>
               </div>
             </div>

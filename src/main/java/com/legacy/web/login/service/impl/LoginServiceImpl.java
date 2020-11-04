@@ -17,7 +17,7 @@ import com.legacy.web.login.service.LoginService;
 public class LoginServiceImpl implements LoginService {
 	
 	@Autowired
-	private LoginMapper mapper;
+	private LoginMapper loginMapper;
 	
 	@Override
 	public int updateLoginFailedCnt(String userId) {
@@ -45,12 +45,12 @@ public class LoginServiceImpl implements LoginService {
 
 	@Override
 	public CamelCaseMap selectAuthUserInfo(String id) {
-		return mapper.selectAuthUserInfo(id);
+		return loginMapper.selectAuthUserInfo(id);
 	}
 
 	@Override
 	public List<CamelCaseMap> selectuserRoles(String id) {
-		return mapper.selectuserRoles(id);
+		return loginMapper.selectuserRoles(id);
 	}
 	
 	@Override

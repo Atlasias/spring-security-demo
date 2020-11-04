@@ -1,6 +1,5 @@
 package com.legacy.base.authentication.service;
 
-import java.util.Enumeration;
 import java.util.LinkedHashSet;
 import java.util.LinkedList;
 import java.util.List;

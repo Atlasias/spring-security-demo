@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.legacy.web.common.service.FileMapper">
+
+	<select id="selectFileInfoById" parameterType="com.legacy.web.common.domain.FileDomain"
+		resultType="com.legacy.web.common.domain.FileDomain">
+		SELECT FILE_ID
+			,FILE_MAP_ID
+			,FILE_TP_CD
+			,SORT_ORD
+			,FILE_ORIGIN_NM
+			,FILE_REPLACED_NM
+			,FILE_EXTN_NM
+			,FILE_SAVED_PATH
+			,FILE_USE_YN
+			FROM FILE_MST
+			WHERE FILE_ID = {fileId}
+			AND FILE_USE_YN = 'Y'
+	</select>
+
+	<insert id="saveFile" parameterType="com.legacy.web.common.domain.FileDomain">
+		INSERT INTO FILE_MST 
+		(
+			FILE_ID
+			,FILE_MAP_ID
+			,FILE_TP_CD
+			,SORT_ORD
+			,FILE_ORIGIN_NM
+			,FILE_REPLACED_NM
+			,FILE_EXTN_NM
+			,FILE_SAVED_PATH
+			,FILE_USE_YN
+			,INPT_DTIME
+			,INPT_USER_ID
+			,INPT_IP
+			,MOD_DTIME
+			,MOD_USER_ID
+			,MOD_IP
+		)
+		
+		VALUES
+		(
+			{fileId}
+			,{fileMapId}
+			,{fileTpCd}
+			,{sortOrd}
+			,{fileOriginNm}
+			,{fileReplacedNm}
+			,{fileExtnNm}
+			,{fileSavedNm}
+			,'Y'
+			,SYSDATE()
+			,{inptUserId}
+			,{inptIp}
+			,SYSDATE()
+			,{inptUserId}
+			,{inptIp}
+		)
+	</insert>
+
+
+	<update id="deleteFile" parameterType="com.legacy.web.common.domain.FileDomain">
+		UPDATE FILE_MST
+			SET USE_YN = 'N'
+				,MOD_DTIME = SYSDATE()
+				,MOD_USER_ID = {modUserid}
+				,MOD_IP = {modIp}
+		WHERE FILE_ID = {fileId}
+	</update>
+	
+	
+	<insert id="saveFileHistory" parameterType="com.legacy.web.common.domain.FileDomain">
+
+	</insert>
+</mapper>
